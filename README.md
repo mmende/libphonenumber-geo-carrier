@@ -30,8 +30,9 @@ const main = async () => {
   const locationIT = await geocoder(fixedLineNumber, 'it') // Zurigo
 
   const mobileNumber = parsePhoneNumberFromString('01701234567', 'DE')
-  const originalCarrier = await carrier(fixedLineNumber) // T-Mobile
-  // const originalCarrier = await carrier(fixedLineNumber) //
+  const originalCarrier = await carrier(mobileNumber) // T-Mobile
+  // Works with locale as well, but there are not so much translations available for carriers:
+  // const originalCarrier = await carrier(fixedLineNumber, 'zh')
 }
 main()
 ```
