@@ -85,3 +85,16 @@ export const carrier = async (
   }
   return null
 }
+
+export const timezones = async (phonenumber: PhoneNumber | undefined) => {
+  if (!phonenumber) {
+    return null
+  }
+  const { countryCallingCode } = phonenumber
+  let dataPath = path.join(__dirname, '../resources/timezones.bson')
+  const zones = await getCode(dataPath, countryCallingCode as string)
+  if (typeof zones === 'string') {
+    return zones.split('&')
+  }
+  return null
+}

@@ -61,6 +61,32 @@ const preparePath = async (dataPath, type) => {
   return { locales }
 }
 
+const prepareTimezones = async () => {
+  const lineRe = /^([0-9]+)\|(.*)$/
+  let data = {}
+  const file = path.join(
+    __dirname,
+    '/../resources/libphonenumber/resources/timezones/map_data.txt'
+  )
+  const fileStream = fs.createReadStream(file)
+  const rl = readline.createInterface({
+    input: fileStream,
+    crlfDelay: Infinity,
+  })
+  // Note: we use the crlfDelay option to recognize all instances of CR LF
+  // ('\r\n') in input.txt as a single line break.
+  for await (const line of rl) {
+    let m
+    if ((m = lineRe.exec(line)) !== null) {
+      const [_, prefix, description] = m
+      data[prefix] = description
+    }
+  }
+  const bData = BSON.serialize(data)
+  const filePath = path.join(__dirname, '/../resources/timezones.bson')
+  fs.writeFileSync(filePath, bData)
+}
+
 const prepare = async () => {
   if (!shell.which('git')) {
     console.log('Sorry, this script requires git')
@@ -89,6 +115,8 @@ const prepare = async () => {
   generatedTypes += `export type CarrierLocale = ${carrierLocales
     .map((l) => `'${l}'`)
     .join(' | ')};\n`
+
+  await prepareTimezones()
 
   console.log('Creating types...')
   fs.writeFileSync(path.join(__dirname, '/../src/locales.ts'), generatedTypes)
