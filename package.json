@@ -1,6 +1,6 @@
 {
   "name": "libphonenumber-geo-carrier",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This library includes the geocoding and carrier mapping functionalities that are available in some of googles libphonenumber libraries but not in libphonenumber-js (a port of libphonenumber).",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -41,5 +41,16 @@
   },
   "bugs": {
     "url": "https://github.com/mmende/libphonenumber-geo-carrier/issues"
-  }
+  },
+  "keywords": [
+    "telephone",
+    "phone",
+    "number",
+    "geo",
+    "geocode",
+    "location",
+    "carrier",
+    "international",
+    "libphonenumber"
+  ]
 }
