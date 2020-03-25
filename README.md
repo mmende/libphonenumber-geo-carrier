@@ -19,11 +19,18 @@ yarn add libphonenumber-js libphonenumber-geo-carrier
 
 # Usage
 
+The available methods are:
+
+- `geocoder(phonenumber: PhoneNumber, locale?: GeocoderLocale = 'en'): Promise<string | null>` - Resolved to the geocode or null if no geocode could be found (e.g. for mobile numbers)
+- `carrier(phonenumber: PhoneNumber, locale?: CarrierLocale = 'en'): Promise<string | null>` - Resolves to the carrier or null if non could be found (e.g. for fixed line numbers)
+- `timezones(phonenumber: PhoneNumber): Promise<Array<string> | null>` - Resolved to an array of timezones or null if non where found.
+
+# Examples
+
 ```js
 import { parsePhoneNumberFromString } from 'libphonenumber-js'
-import { geocoder, carrier, timezone } from 'libphonenumber-geo-carrier'
-
-const main = async () => {
+import { geocoder, carrier, timezones } from 'libphonenumber-geo-carrier'
+;(async () => {
   const fixedLineNumber = parsePhoneNumberFromString('+41431234567')
   const locationEN = await geocoder(fixedLineNumber) // Zurich
   const locationDE = await geocoder(fixedLineNumber, 'de') // Zürich
@@ -34,7 +41,6 @@ const main = async () => {
   const carrierZH = await carrier(mobileNumber, 'zh') // 中国电信
 
   const fixedLineNumber2 = parsePhoneNumberFromString('+49301234567')
-  const tzones = await timezone(fixedLineNumber2) // ['Europe/Berlin']
-}
-main()
+  const tzones = await timezones(fixedLineNumber2) // ['Europe/Berlin']
+})()
 ```
