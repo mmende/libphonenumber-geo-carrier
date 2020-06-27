@@ -1,6 +1,6 @@
 {
   "name": "libphonenumber-geo-carrier",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "This library includes the geocoding, carrier mapping and timezone mapping functionalities that are available in some of googles libphonenumber libraries but not in libphonenumber-js (a port of libphonenumber).",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -24,7 +24,7 @@
     "@types/node": "^13.9.3",
     "@types/shelljs": "^0.8.7",
     "jest": "^25.1.0",
-    "libphonenumber-js": "^1.7.48",
+    "libphonenumber-js": "^1.7.53",
     "prettier": "^2.0.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.1.0",
