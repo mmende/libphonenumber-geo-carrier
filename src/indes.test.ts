@@ -1,5 +1,10 @@
+/**
+ * Just some simple test cases to check for major flaws...
+ * should probably much more
+ */
+
 import { parsePhoneNumberFromString } from 'libphonenumber-js'
-import { geocoder, carrier, timezones } from '../'
+import { geocoder, carrier, timezones } from './index'
 
 it('geocodes with default locale en', async () => {
   const phoneNr = parsePhoneNumberFromString('+41431234567')

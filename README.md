@@ -1,4 +1,4 @@
-# What does this library do?
+# Purpose of this library
 
 This library includes the geocoding, carrier mapping and timezone mapping functionalities that are available in some of googles libphonenumber libraries but not in libphonenumber-js (a port of libphonenumber).
 To reduce the amount of data that needs to be loaded to geocode / carrier map a phonenumber for each mapping only the relevant number prefixes are loaded from a binary json file (BSON).
@@ -30,7 +30,8 @@ The available methods are:
 ```js
 import { parsePhoneNumberFromString } from 'libphonenumber-js'
 import { geocoder, carrier, timezones } from 'libphonenumber-geo-carrier'
-;(async () => {
+
+const main = async () => {
   const fixedLineNumber = parsePhoneNumberFromString('+41431234567')
   const locationEN = await geocoder(fixedLineNumber) // Zurich
   const locationDE = await geocoder(fixedLineNumber, 'de') // Zürich
@@ -42,5 +43,7 @@ import { geocoder, carrier, timezones } from 'libphonenumber-geo-carrier'
 
   const fixedLineNumber2 = parsePhoneNumberFromString('+49301234567')
   const tzones = await timezones(fixedLineNumber2) // ['Europe/Berlin']
-})()
+}
+
+main()
 ```
