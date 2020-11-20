@@ -2,7 +2,7 @@ import { PhoneNumber } from 'libphonenumber-js'
 import { GeocoderLocale, CarrierLocale } from './locales'
 import fs from 'fs'
 import { promisify } from 'util'
-import BSON from 'bson'
+import { deserialize } from 'bson'
 import path from 'path'
 
 const access = promisify(fs.access)
@@ -15,10 +15,12 @@ const getCode = async (dataPath: string, prefix: string) => {
   try {
     await access(dataPath)
     const bData = await readFile(dataPath)
-    const data = BSON.deserialize(bData)
+    const data = deserialize(bData)
     const description = data[prefix]
     return description as string
-  } catch (err) {}
+  } catch (err) {
+    // console.log('Could not parse bson', err)
+  }
   return null
 }
 

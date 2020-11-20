@@ -3,7 +3,7 @@
  * should probably much more
  */
 
-import { parsePhoneNumberFromString } from 'libphonenumber-js'
+import parsePhoneNumberFromString from 'libphonenumber-js'
 import { geocoder, carrier, timezones } from './index'
 
 it('geocodes with default locale en', async () => {
