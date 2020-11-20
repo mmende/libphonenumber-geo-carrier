@@ -28,7 +28,7 @@ The available methods are:
 # Examples
 
 ```js
-import { parsePhoneNumberFromString } from 'libphonenumber-js'
+import parsePhoneNumberFromString from 'libphonenumber-js'
 import { geocoder, carrier, timezones } from 'libphonenumber-geo-carrier'
 
 const main = async () => {
