@@ -1,11 +1,12 @@
-# Purpose of this library
+# Phonenumber geo-, carrier- and timezone infos
 
 This library includes the geocoding, carrier mapping and timezone mapping functionalities that are available in some of googles [libphonenumber](https://github.com/google/libphonenumber) libraries but not in [libphonenumber-js](https://gitlab.com/catamphetamine/libphonenumber-js) (a port of libphonenumber).
+
 To reduce the amount of data that needs to be loaded to geocode / carrier map a phonenumber for each mapping only the relevant number prefixes are loaded from a binary json file (BSON).
 When the prefix could not be found in the provided locale the library tries to fallback to `en` as locale.
 The library supports Node.js only at the moment.
 
-# Installation
+## Installation
 
 ```sh
 npm install libphonenumber-js libphonenumber-geo-carrier
@@ -17,7 +18,7 @@ or
 yarn add libphonenumber-js libphonenumber-geo-carrier
 ```
 
-# Usage
+## Usage
 
 The available methods are:
 
@@ -25,7 +26,7 @@ The available methods are:
 - `carrier(phonenumber: PhoneNumber, locale?: CarrierLocale = 'en'): Promise<string | null>` - Resolves to the carrier or null if non could be found (e.g. for fixed line numbers)
 - `timezones(phonenumber: PhoneNumber): Promise<Array<string> | null>` - Resolved to an array of timezones or null if non where found.
 
-# Examples
+## Examples
 
 ```js
 import parsePhoneNumberFromString from 'libphonenumber-js'
