@@ -52,3 +52,9 @@ it('maps issue #7 to the correct carrier', async () => {
   const carrierCZ = await carrier(phoneNr)
   expect(carrierCZ).toContain('T-Mobile')
 })
+
+it('maps issue #8 to the correct timezone', async () => {
+  const phoneNr = parsePhoneNumberFromString('+19168085888')
+  const tzs = await timezones(phoneNr)
+  expect(tzs).toEqual(['America/Los_Angeles'])
+})
