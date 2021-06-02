@@ -129,12 +129,13 @@ export const carrier = async (
  * @param phonenumber The phone number
  */
 export const timezones = async (phonenumber: PhoneNumber | undefined) => {
-  const countryCallingCode = phonenumber?.countryCallingCode.toString()
-  if (!countryCallingCode) {
+  let nr = phonenumber?.number.toString()
+  if (!nr) {
     return null
   }
+  nr = nr.replace(/^\+/, '')
   let dataPath = path.join(__dirname, '../resources/timezones.bson')
-  const zones = await getCode(dataPath, countryCallingCode)
+  const zones = await getCode(dataPath, nr)
   if (typeof zones === 'string') {
     return zones.split('&')
   }
