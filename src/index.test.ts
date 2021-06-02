@@ -1,6 +1,6 @@
 /**
  * Just some simple test cases to check for major flaws...
- * should probably much more
+ * should probably include much more test cases
  */
 
 import parsePhoneNumberFromString from 'libphonenumber-js'
