@@ -9,7 +9,7 @@ const access = promisify(fs.access)
 const readFile = promisify(fs.readFile)
 
 /**
- * Maps the dataPath and prefix to geocode, carrier or timezones of null if this info could not be extracted
+ * Maps the dataPath and prefix to geocode, carrier, timezones or null if this info could not be extracted
  *
  * **Note:** Timezones are returned as single string joined with `&`
  *
