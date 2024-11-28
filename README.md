@@ -1,6 +1,6 @@
 # Phonenumber geo-, carrier- and timezone infos
 
-<a href="https://www.npmjs.com/package/libphonenumber-geo-carrier"><img title="npm version" src="https://badgen.net/npm/v/libphonenumber-geo-carrier" ></a>
+[![npm version](https://badge.fury.io/js/libphonenumber-geo-carrier.svg?icon=si%3Anpm)](https://badge.fury.io/js/libphonenumber-geo-carrier)
 <a href="https://www.npmjs.com/package/libphonenumber-geo-carrier"><img title="npm downloads" src="https://badgen.net/npm/dt/libphonenumber-geo-carrier?icon=npm"></a>
 
 This library includes the geocoding, carrier mapping and timezone mapping functionalities that are available in some of googles [libphonenumber](https://github.com/google/libphonenumber) libraries but not in [libphonenumber-js](https://gitlab.com/catamphetamine/libphonenumber-js) (a port of libphonenumber).
