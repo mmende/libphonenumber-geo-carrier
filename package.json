@@ -27,7 +27,7 @@
     "libphonenumber-js": "1.12.31",
     "prettier": "3.7.4",
     "rimraf": "6.1.2",
-    "rollup": "4.53.3",
+    "rollup": "4.59.0",
     "rollup-plugin-typescript2": "0.36.0",
     "shelljs": "0.10.0",
     "ts-jest": "29.4.6",
