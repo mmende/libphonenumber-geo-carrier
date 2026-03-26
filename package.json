@@ -1,6 +1,6 @@
 {
   "name": "libphonenumber-geo-carrier",
-  "version": "1.2.13",
+  "version": "2.0.0",
   "description": "This library includes the geocoding, carrier mapping and timezone mapping functionalities that are available in some of googles libphonenumber libraries but not in libphonenumber-js (a port of libphonenumber).",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -12,8 +12,8 @@
   "author": "Martin Mende",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf lib && rollup -c",
-    "watch": "rimraf lib && rollup -cw",
+    "build": "rimraf lib .rollup-tmp && tsc -p tsconfig.build.json && rollup -c rollup.config.build.mjs && rimraf .rollup-tmp",
+    "watch": "node tools/watch.js",
     "prepublishOnly": "npm run build",
     "preparemetadata": "rimraf resources && node tools/prepare.js && rimraf resources/libphonenumber",
     "test": "jest"
@@ -21,21 +21,21 @@
   "devDependencies": {
     "@types/bson": "4.0.5",
     "@types/jest": "30.0.0",
-    "@types/node": "24.10.1",
-    "@types/shelljs": "0.8.17",
-    "jest": "30.2.0",
-    "libphonenumber-js": "1.12.31",
-    "prettier": "3.7.4",
-    "rimraf": "6.1.2",
-    "rollup": "4.53.3",
+    "@types/node": "25.5.0",
+    "@types/shelljs": "0.10.0",
+    "jest": "30.3.0",
+    "libphonenumber-js": "1.12.40",
+    "prettier": "3.8.1",
+    "rimraf": "6.1.3",
+    "rollup": "^4.60.0",
     "rollup-plugin-typescript2": "0.36.0",
     "shelljs": "0.10.0",
     "ts-jest": "29.4.6",
     "tslib": "2.8.1",
-    "typescript": "5.9.3"
+    "typescript": "6.0.2"
   },
   "dependencies": {
-    "bson": "7.0.0"
+    "bson": "7.2.0"
   },
   "peerDependencies": {
     "libphonenumber-js": "1.12.31"
